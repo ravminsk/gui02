@@ -30,17 +30,6 @@ class MainFrame extends JFrame {
 
 	JPanel panel5 = new JPanel();
 
-	// обработка событий
-	// способ1
-	private ButtonListener1 bl1 = new ButtonListener1();
-
-	class ButtonListener1 implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JOptionPane.showMessageDialog(null, "обрабочик нажатия кнопки");
-		}
-	}
-
 	// конструктор для инициализации окна
 	public MainFrame(String title) {
 	//	setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -60,13 +49,27 @@ class MainFrame extends JFrame {
 		add(panel5);
 		pack();
 	
-		bArchive.addActionListener(bl1);
 
 		bArchive.addActionListener(e -> {
-			FileDialog fd = new FileDialog(this, "dsfsdf", FileDialog.LOAD);
+			FileDialog fd = new FileDialog(this, "Выберите файл для сжатия", FileDialog.LOAD);
 			fd.setVisible(true);
+			String filename = fd.getFile();
+			if (filename != null) {
+				txtArea.append("Выбран файл для сжатия: "+ filename+"\n");
+				
+				
+			}
 			
-
+		});
+		
+		bExtract.addActionListener(e -> {
+			FileDialog fd = new FileDialog(this, "Выберите файл для извлечения из архива", FileDialog.LOAD);
+			fd.setVisible(true);
+			String filename = fd.getFile();
+			if (filename != null)	{
+				txtArea.append("Выбран файл для извлечения: "+ filename+"\n");
+			}
+			
 		});
 
 	}
