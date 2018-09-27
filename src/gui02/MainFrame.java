@@ -84,7 +84,6 @@ class MainFrame extends JFrame {
 			FileDialog fd = new FileDialog(this, "dsfsdf", FileDialog.LOAD);
 			fd.setVisible(true);
 			
-			//JOptionPane.showMessageDialog(null, "2  обрабочик нажатия кнопки");
 
 		});
 
