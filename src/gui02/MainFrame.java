@@ -21,21 +21,12 @@ class MainFrame extends JFrame {
 	private static final int DEFAULT_HEIGHT = (int) (Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 3);
 
 	// элементы основного окна
-	JPanel panel1 = new JPanel();
-	JLabel lBrowse = new JLabel("Выберите файл: ");
-	JTextField tfInFile = new JTextField(30);
-	JButton bBrowse = new JButton("Обзор...");
-
-	JPanel panel2 = new JPanel();
-	JLabel lSave = new JLabel("Сохранить файл под именем: ");
-	JTextField tfOutFile = new JTextField(30);
-
 	JPanel panel3 = new JPanel();
-	JButton bArchive = new JButton("Добавить в архив");
-	JButton bExtract = new JButton("Извлечь из архива");
+	JButton bArchive = new JButton(" Добавить в архив... ");
+	JButton bExtract = new JButton(" Извлечь из архива... ");
 
 	JPanel panel4 = new JPanel();
-	JTextArea txtArea = new JTextArea(5, 50);
+	JTextArea txtArea = new JTextArea(6, 50);
 
 	JPanel panel5 = new JPanel();
 
@@ -56,22 +47,13 @@ class MainFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle(title);
 		setLocationByPlatform(true);
-		
-		panel1.add(lBrowse);
-		panel1.add(tfInFile);
-		panel1.add(bBrowse);
-
-		panel2.add(lSave);
-		panel2.add(tfOutFile);
 
 		panel3.add(bArchive);
 		panel3.add(bExtract);
 
 		panel4.add(new JScrollPane(txtArea));
 
-		panel5.setLayout(new GridLayout(4,1));
-		panel5.add(panel1);
-		panel5.add(panel2);
+		panel5.setLayout(new GridLayout(2,1));
 		panel5.add(panel3);
 		panel5.add(panel4);
 
@@ -80,7 +62,7 @@ class MainFrame extends JFrame {
 	
 		bArchive.addActionListener(bl1);
 
-		bBrowse.addActionListener(e -> {
+		bArchive.addActionListener(e -> {
 			FileDialog fd = new FileDialog(this, "dsfsdf", FileDialog.LOAD);
 			fd.setVisible(true);
 			
